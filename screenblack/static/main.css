@@ -1,0 +1,306 @@
+/* Fira Code cause why not? */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
+
+:root {
+  font-size: 16px;
+
+  --gray0: #f8f8f8;
+  --gray1: #dbe1e8;
+  --gray2: #b2becd;
+  --gray3: #6c7983;
+  --gray4: #444d55;
+  --gray5: #363b44;
+  --gray6: #2a2e35;
+  --gray7: #12181c;
+
+  --rajah: #ffa86a;
+  --green: #09c372;
+  --red: #ff3860;
+}
+
+::selection {
+  background-color: var(--gray2);
+  color: var(--gray7);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Fira Code", monospace;
+  background-color: var(--gray6);
+  color: var(--gray1);
+  line-height: 1.54;
+}
+
+h1 {
+  color: var(--gray0);
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+}
+
+/* main container */
+.container {
+  max-width: 936px;
+  min-height: 100vh;
+  padding: 40px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid var(--rajah); */
+}
+
+/* site header styles */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* site header logo section  */
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  display: flex;
+  flex: 1;
+}
+
+.header-logo:after {
+  content: "";
+  display: block;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--rajah),
+    var(--rajah) 2px,
+    transparent 0,
+    transparent 10px
+  );
+  right: 10px;
+  width: 100%;
+}
+
+.header-logo a {
+  flex: 0 0 auto;
+  max-width: 100%;
+  text-decoration: none;
+}
+
+.logo::selection {
+  background-color: var(--gray7);
+  color: var(--rajah);
+}
+
+.logo {
+  align-items: center;
+  background: var(--rajah);
+  color: var(--gray7);
+  font-weight: 700;
+  display: flex;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+/* navigation menu */
+
+.menu {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.site-header .left-menu {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0px;
+  padding: 0;
+}
+.site-header .right-menu {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0px;
+  padding: 0;
+}
+.site-header .left-menu li:not(:last-of-type) {
+  flex: 0 0 auto;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+.site-header .right-menu li:not(:first-of-type) {
+  flex: 0 0 auto;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+
+/* content part */
+
+.framed-content {
+  border: 1px solid var(--rajah);
+  padding: 20px;
+}
+
+/* forms */
+
+fieldset {
+  min-width: initial;
+}
+
+.form-fields {
+  margin: 60px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+  border-right: 1px solid var(--rajah);
+}
+.form-field.bool-field {
+  display: block;
+  border-right: none;
+}
+/* .bool-input-field:checked {
+  background-color: var(--gray6);
+  color: var(--rajah);
+} */
+
+.label {
+  opacity: 0.6;
+  margin-bottom: 4px;
+}
+
+.input-field {
+  background-color: inherit;
+  font-family: inherit;
+  color: var(--gray0);
+  border: none;
+  border-bottom: 1px solid var(--rajah);
+  outline: none;
+  font-size: 1.4rem;
+}
+
+.btn {
+  font-family: inherit;
+  font-weight: 700;
+  background-color: var(--rajah);
+  color: var(--gray6);
+  font-size: 1.4rem;
+  padding: 0.7rem 2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+/* alerts and popups */
+.alert {
+  font-size: 1.2rem;
+  display: block;
+  background-color: var(--gray2);
+  color: var(--gray7);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.alert-success {
+  background-color: var(--green);
+  color: var(--gray7);
+}
+.alert-danger {
+  background-color: var(--red);
+  color: var(--gray7);
+}
+
+.text-danger {
+  color: var(--red);
+}
+
+
+
+.invalid-feedback {
+  color: var(--red);
+  font-size: 0.6rem;
+}
+
+/* article styling */
+
+.article-body {
+  padding: 20px 25px;
+  background-color: var(--gray6);
+
+  box-shadow: var(--gray5) 0px 1px 1px 0px inset,
+    var(--gray7) 0px 10px 20px -5px, var(--gray7) 0px 6px 12px -6px;
+
+  margin: 20px 0;
+  border-radius: 0.6rem;
+}
+
+.article-body:not(:last-of-type) {
+  margin-bottom: 30px;
+}
+
+.article-metadata {
+  margin: 0 0 10px;
+}
+
+.article-title {
+  color: var(--gray0);
+}
+.article-author {
+  color: var(--rajah);
+}
+.article-date {
+  color: var(--gray2);
+}
+.article-content p {
+  text-indent: 4ch;
+}
+
+
+/* account page */
+.page-heading {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.dashboard {
+  padding: 20px;
+}
+
+.profile-card {
+  text-align: center;
+}
+
+.profile-image {
+  display: block;
+  max-width: 125px;
+  margin: 10px auto;
+  border: 2px solid var(--rajah);
+  border-radius: 50%;
+}
+
+
+
+/* media queries */
+@media only screen and (max-width: 540px) {
+  .container {
+    padding: 10px 5px;
+  }
+  :root {
+    font-size: 12px;
+  }
+}

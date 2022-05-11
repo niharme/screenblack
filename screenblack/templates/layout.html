@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% if title %}
+    <title>Screen Black | {{title}}</title>
+    {% else %}
+    <title>Screen Black | Home</title>
+    {% endif %}
+
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- header section -->
+      <header class="site-header">
+        <!-- header logo and brand name -->
+        <div class="header-top">
+          <div class="header-logo">
+            <a href="/">
+              <div class="logo">Screen Black</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- navigation menu -->
+        <nav class="menu">
+          <ul class="left-menu">
+            <li><a href="{{url_for('home')}}">Home</a></li>
+            <li><a href="{{url_for('about')}}">About</a></li>
+          </ul>
+          <ul class="right-menu">
+          {% if current_user.is_authenticated %}  
+            <li><a href="{{url_for('account')}}">Account</a></li>
+            <li><a href="{{url_for('logout')}}">Logout</a></li>
+          {% else %}
+            <li><a href="{{url_for('login')}}">Login</a></li>
+            <li><a href="{{url_for('register')}}">Sign Up</a></li>
+          {% endif %}
+          </ul>
+        </nav>
+      </header>
+      <main class="content">
+        <div class="framed-content">
+          {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{category}}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block content %} {% endblock content %}
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
