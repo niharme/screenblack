@@ -1,14 +1,17 @@
-{% extends "layout.html" %} {% block content %} {% for post in posts %}
+{% extends "layout.html" %}
+{% block content %}
+  {% for post in posts %}
 
-<article class="article-body">
-  <div class="article-metadata">
-    <a class="article-author" href="#">{{ post.author }}</a>
-    <small class="article-date">{{ post.date_posted }}</small>
-  </div>
-  <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-  <div class="article-content">
-    <p>{{ post.content }}</p>
-  </div>
-</article>
+    <article class="article-body">
+      <div class="article-metadata">
+        <a class="article-author" href="#">{{ post.author }}</a>
+        <small class="article-date">{{ post.date_posted }}</small>
+      </div>
+      <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+      <div class="article-content">
+        <p>{{ post.content }}</p>
+      </div>
+    </article>
 
-{% endfor %} {% endblock content %}
+  {% endfor %}
+{% endblock content %}

@@ -1,5 +1,11 @@
+activate virtual environment
+
+for downloading requierd packages
 ```
-ve
-va
 pip install -r requirements.txt
+```
+
+running the app in localhost
+```
+python run.py
 ```

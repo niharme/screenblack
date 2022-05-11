@@ -8,9 +8,7 @@
     
 
     <img src="{{ picture }}" alt="profile picture for {{ current_user.username }}" class="profile-image">
-    <!-- todo: if there is no image file use dicebar avatar -->
-
-    
+  
     <h2 class="profile-card-username">{{ current_user.username }}</h2>
     <p class="profile-card-email">{{ current_user.email }}</p>
   </div>
@@ -21,27 +19,33 @@
     <fieldset>
       <div class="form-fields">
         <div class="form-field">
-          {{ form.username.label(class='label') }} {% if form.username.errors %}
-          {{ form.username(class="input-field") }}
+          {{ form.username.label(class='label') }}
+          {% if form.username.errors %}
+            {{ form.username(class="input-field") }}
   
-          <div class="invalid-feedback">
-            {% for error in form.username.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
-          </div>
-          {% else %} {{ form.username(class="input-field") }} {% endif %}
+            <div class="invalid-feedback">
+              {% for error in form.username.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.username(class="input-field") }}
+          {% endif %}
         </div>
   
         <div class="form-field">
-          {{ form.email.label(class='label') }} {% if form.email.errors %} {{
-          form.email(class="input-field") }}
+          {{ form.email.label(class='label') }}
+          {% if form.email.errors %}
+            {{ form.email(class="input-field") }}
   
-          <div class="invalid-feedback">
-            {% for error in form.email.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
-          </div>
-          {% else %} {{ form.email(class="input-field") }} {% endif %}
+            <div class="invalid-feedback">
+              {% for error in form.email.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.email(class="input-field") }}
+          {% endif %}
         </div>
         <div class="form-field">
           {{ form.picture.label() }}

@@ -30,7 +30,7 @@
         <nav class="menu">
           <ul class="left-menu">
             <li><a href="{{url_for('home')}}">Home</a></li>
-            <li><a href="{{url_for('about')}}">About</a></li>
+            <li><a href="{{url_for('about')}}"><del>About</del></a></li>
           </ul>
           <ul class="right-menu">
           {% if current_user.is_authenticated %}  
