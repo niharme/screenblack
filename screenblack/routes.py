@@ -4,7 +4,7 @@ from PIL import Image
 from flask import url_for, render_template, redirect, flash, request
 from flask_login import login_user, current_user, logout_user, login_required
 from screenblack import app, db, bcrypt
-from screenblack.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from screenblack.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
 from screenblack.models import User, Post
 
 
@@ -132,3 +132,14 @@ def account():
 
   picture = url_for('static', filename='profilepics/' + current_user.picture)
   return render_template('account.html', title='Account', picture=picture, form=form)
+
+
+@app.route("/post/new", methods=["GET", "POST"])
+@login_required
+def new_post():
+  form = PostForm()
+  if form.validate_on_submit():
+    
+    flash("Your post has been created.", "success")
+    return redirect(url_for("home"))
+  return render_template("new_post.html", title="New Post", form=form)

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset>
+      <legend>New Post</legend>
+      <div class="form-fields">
+        <div class="form-field">
+          {{ form.title.label(class='label') }}
+          {% if form.title.errors %}
+            {{ form.title(class="input-field") }}
+
+            <div class="invalid-feedback">
+            {% for error in form.title.errors %}
+              <span>{{ error }}</span>
+            {% endfor %}
+            </div>
+          {% else %}
+            {{ form.title(class="input-field") }}
+          {% endif %}
+        </div>
+
+        <div class="form-field">
+          {{ form.content.label(class='label') }}
+          {% if form.content.errors %}
+            {{ form.content(class="input-field") }}
+
+            <div class="invalid-feedback">
+              {% for error in form.content.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.content(class="input-field") }}
+          {% endif %}
+        </div>
+
+      </div>
+
+      <div class="form-fields">{{ form.submit(class="submit-btn btn") }}</div>
+      
+    </fieldset>
+  </form>
+
+{% endblock content %}
