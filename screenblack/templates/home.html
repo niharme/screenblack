@@ -4,8 +4,14 @@
 
     <article class="article-body">
       <div class="article-metadata">
-        <a class="article-author" href="#">{{ post.author }}</a>
-        <small class="article-date">{{ post.date_posted }}</small>
+        <div class="article-author-picture">
+          <a href="#"><img class="profilepic-mini" src="{{ url_for('static', filename='profilepics/'+post.author.picture) }}" alt="profile pictuer of post.author.username"></a>
+        </div>
+        <div class="article-author-details">
+          <a class="article-author" href="#">{{ post.author.username }}</a>
+          <small class="text-muted">on</small>
+          <small class="article-date">{{ post.date_posted.strftime("%B %d, %Y") }}</small>
+        </div>
       </div>
       <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
       <div class="article-content">

@@ -8,24 +8,10 @@ from screenblack.forms import RegistrationForm, LoginForm, UpdateAccountForm, Po
 from screenblack.models import User, Post
 
 
-posts = [
-  {
-    "author": "Nihar Ranjan Barik",
-    "title": "Screen Blue",
-    "content": "Officially called the stop screen, or stop error, the blue screen of death (screenblack) is a most unwanted error, second only to malware or ransomware in indicating that a user is in for a very bad day. It comes with no warning and all unsaved work is immediately lost.",
-    "date_posted": "May 7 2022"
-  },
-  {
-    "author": "Zico",
-    "title": "Code Red",
-    "content": "Now is the winter of our discontent Made glorious summer by this sun of York; And all the clouds that lour'd upon our house In the deep bosom of the ocean buried. Now are our brows bound with victorious wreaths; Our bruised arms hung up for monuments; Our stern alarums changed to merry meetings, Our dreadful marches to delightful measures. Grim-visaged war hath smooth'd his wrinkled front; And now, instead of mounting barded steeds To fright the souls of fearful adversaries, He capers nimbly in a lady's chamber To the lascivious pleasing of a lute.",
-    "date_posted": "May 9 2022"
-  }
-]
-
 @app.route("/")
 @app.route("/home")
 def home():
+  posts = Post.query.all()
   return render_template("home.html", posts = posts)
 
 
@@ -85,7 +71,7 @@ def crop_max_square(pil_img):
 
 def save_picture(form_picture):
   ranodm_hex = secrets.token_hex(8)
-  _ , file_ext = os.path.splitext(form_picture.filename)
+  _, file_ext = os.path.splitext(form_picture.filename)
   pic_file_name = ranodm_hex + file_ext
   pic_path = os.path.join(app.root_path, "static/profilepics", pic_file_name)
 
@@ -139,7 +125,9 @@ def account():
 def new_post():
   form = PostForm()
   if form.validate_on_submit():
-    
+    post = Post(title = form.title.data, content = form.content.data, author = current_user)
+    db.session.add(post)
+    db.session.commit()
     flash("Your post has been created.", "success")
     return redirect(url_for("home"))
   return render_template("new_post.html", title="New Post", form=form)

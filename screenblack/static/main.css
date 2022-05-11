@@ -262,7 +262,21 @@ fieldset {
 }
 
 .article-metadata {
-  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+}
+.article-author-picture {
+  display: grid;
+  place-items: center;
+  margin-right: 20px;
+}
+.article-author-picture a{
+  line-height: 1;
+}
+
+.profilepic-mini {
+  max-width: 75px;
+  border-radius: 50%;
 }
 
 .article-title {
@@ -270,12 +284,16 @@ fieldset {
 }
 .article-author {
   color: var(--rajah);
+  font-size: 1.4rem;
 }
 .article-date {
-  color: var(--gray2);
+  color: var(--gray1);
 }
 .article-content p {
   text-indent: 4ch;
+}
+.text-muted {
+  color: var(--gray2);
 }
 
 
