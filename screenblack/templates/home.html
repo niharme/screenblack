@@ -3,7 +3,7 @@
   {% for post in posts %}
 
     <article class="article-body">
-      <div class="article-metadata">
+      <div class="home-article">
         <div class="article-author-picture">
           <a href="#"><img class="profilepic-mini" src="{{ url_for('static', filename='profilepics/'+post.author.picture) }}" alt="profile picture for {{ post.author.username }}"></a>
         </div>

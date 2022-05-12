@@ -278,11 +278,16 @@ input[type=file i]::-webkit-file-upload-button {
 .article-body:not(:last-of-type) {
   margin-bottom: 30px;
 }
-
+.home-article {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
 .article-metadata {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 15px;
 }
 .article-header {
   display: flex;
@@ -314,19 +319,6 @@ input[type=file i]::-webkit-file-upload-button {
 }
 .article-content p {
   text-indent: 4ch;
-}
-.article-modify form {
-  display: inline-block;
-}
-
-.article-modify input {
-  font-size: inherit;
-  font-family: inherit;
-  text-decoration: underline;
-  background-color: transparent;
-  border: none;
-  color: inherit;
-  cursor: pointer;
 }
 .text-muted {
   color: var(--gray2);
