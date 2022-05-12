@@ -34,7 +34,7 @@
           </ul>
           <ul class="right-menu">
           {% if current_user.is_authenticated %}
-            <li><a href="{{url_for('new_post')}}">Create Post</a></li>
+            <li><a href="{{url_for('create_post')}}">Create Post</a></li>
             <li><a href="{{url_for('account')}}">Account</a></li>
             <li><a href="{{url_for('logout')}}">Logout</a></li>
           {% else %}

@@ -5,7 +5,7 @@
     <article class="article-body">
       <div class="article-metadata">
         <div class="article-author-picture">
-          <a href="#"><img class="profilepic-mini" src="{{ url_for('static', filename='profilepics/'+post.author.picture) }}" alt="profile pictuer of post.author.username"></a>
+          <a href="#"><img class="profilepic-mini" src="{{ url_for('static', filename='profilepics/'+post.author.picture) }}" alt="profile picture for {{ post.author.username }}"></a>
         </div>
         <div class="article-author-details">
           <a class="article-author" href="#">{{ post.author.username }}</a>
@@ -13,7 +13,7 @@
           <small class="article-date">{{ post.date_posted.strftime("%B %d, %Y") }}</small>
         </div>
       </div>
-      <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+      <h2><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
       <div class="article-content">
         <p>{{ post.content }}</p>
       </div>

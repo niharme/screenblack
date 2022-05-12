@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  <article class="article-body">
+    <div class="article-metadata">
+      <div class="article-header">
+        <div class="article-author-picture">
+          <a href="#"><img class="profilepic-mini" src="{{ url_for('static', filename='profilepics/'+post.author.picture) }}" alt="profile picture for {{ post.author.username }}"></a>
+        </div>
+        <div class="article-author-details">
+          <a class="article-author" href="#">{{ post.author.username }}</a>
+          <small class="text-muted">on</small>
+          <small class="article-date">{{ post.date_posted.strftime("%B %d, %Y") }}</small>
+        </div>
+      </div>
+      {% if post.author == current_user %}
+      <div class="article-modify">
+        <a href="{{ url_for('update_post', post_id = post.id) }}">Update</a>
+
+        <!-- using form to get POST method  -->
+        <form action="{{ url_for('delete_post', post_id = post.id) }}" method="POST">
+          <input type="submit" value="Delete">
+        </form>
+      </div>
+      {% endif %}
+      
+    </div>
+    <h2 class="article-title">{{ post.title }}</h2>
+    <div class="article-content">
+      <p>{{ post.content }}</p>
+    </div>
+  </article>
+
+{% endblock content %}
