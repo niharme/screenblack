@@ -11,13 +11,14 @@ from screenblack.models import User, Post
 @app.route("/")
 @app.route("/home")
 def home():
-  posts = Post.query.all()
+  page = request.args.get("page", default=1, type=int)
+  posts = Post.query.order_by(Post.date_posted.desc()).paginate(page = page, per_page=5)
   return render_template("home.html", posts = posts)
 
 
 @app.route("/about")
 def about():
-  return render_template("about.html")
+  return render_template("about.html", title="About")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -79,7 +80,7 @@ def save_picture(form_picture):
   i = crop_max_square(i)
 
 
-  output_size = (125, 125)
+  output_size = (128, 128)
   i.thumbnail(output_size)
 
 
@@ -174,3 +175,12 @@ def delete_post(post_id):
 
   flash("Post Deleted!", "success")
   return redirect(url_for("home"))
+
+
+
+@app.route("/user/<string:username>")
+def user_about(username):
+  page = request.args.get("page", default=1, type=int)
+  user = User.query.filter_by(username=username).first_or_404()
+  posts = Post.query.filter_by(author=user).order_by(Post.date_posted.desc()).paginate(page = page, per_page=5)
+  return render_template("user_about.html", user = user, posts = posts, title = username)

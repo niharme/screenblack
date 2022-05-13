@@ -156,7 +156,6 @@ p {
   margin-top: 20px;
 }
 
-
 /* content part */
 
 .framed-content {
@@ -191,7 +190,7 @@ input[type="file" i] {
   pointer-events: none;
   font-weight: inherit;
 }
-input[type=file i]::-webkit-file-upload-button {
+input[type="file" i]::-webkit-file-upload-button {
   cursor: pointer;
   font-family: inherit;
   background: transparent;
@@ -255,8 +254,6 @@ input[type=file i]::-webkit-file-upload-button {
   color: var(--red);
 }
 
-
-
 .invalid-feedback {
   color: var(--red);
   font-size: 0.6rem;
@@ -298,7 +295,7 @@ input[type=file i]::-webkit-file-upload-button {
   place-items: center;
   margin-right: 20px;
 }
-.article-author-picture a{
+.article-author-picture a {
   line-height: 1;
 }
 
@@ -324,7 +321,6 @@ input[type=file i]::-webkit-file-upload-button {
   color: var(--gray2);
 }
 
-
 /* account page */
 .page-heading {
   text-align: center;
@@ -341,13 +337,42 @@ input[type=file i]::-webkit-file-upload-button {
 
 .profile-image {
   display: block;
-  max-width: 125px;
+  max-width: 128px;
   margin: 10px auto;
   border: 2px solid var(--rajah);
   border-radius: 50%;
 }
 
+/* pagination */
+.pagination {
+  margin: 30px 0;
+  text-align: center;
+}
+.pagination a {
+  min-width: 2ch;
+  text-decoration: none;
+  border: 1px solid var(--rajah);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+}
 
+.pagination a:hover {
+  background-color: var(--rajah);
+  color: var(--gray7);
+}
+
+.link-current {
+  pointer-events: none;
+  background-color: var(--rajah);
+  color: var(--gray7);
+  font-weight: bold;
+}
+
+
+/* user about */
+.user-about-heading {
+  margin: 20px 25px 0;
+}
 
 /* media queries */
 @media only screen and (max-width: 540px) {
