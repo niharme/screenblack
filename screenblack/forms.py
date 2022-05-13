@@ -6,6 +6,7 @@ from flask_wtf.file import FileField, FileAllowed
 from screenblack.models import User
 
 class RegistrationForm(FlaskForm):
+  name = StringField("Name", validators=[DataRequired(), Length(min=1, max=30)])
   username = StringField("Username", validators=[DataRequired(), Length(min=2, max=20)])
   email = StringField("Email", validators=[DataRequired(), Email()])
   password = PasswordField("Password", validators=[DataRequired()])
@@ -30,6 +31,7 @@ class LoginForm(FlaskForm):
 
 
 class UpdateAccountForm(FlaskForm):
+  name = StringField("Name", validators=[DataRequired(), Length(min=1, max=30)])
   username = StringField("Username", validators=[DataRequired(), Length(min=2, max=20)])
   email = StringField("Email", validators=[DataRequired(), Email()])
   picture = FileField("Upload Profile Pic", validators=[FileAllowed(["jpg", "png"])])

@@ -226,7 +226,7 @@ input[type="file" i]::-webkit-file-upload-button {
   font-weight: 700;
   background-color: var(--rajah);
   color: var(--gray6);
-  font-size: 1.4rem;
+  font-size: 1rem;
   padding: 0.7rem 2rem;
   border-radius: 2rem;
   cursor: pointer;

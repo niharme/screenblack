@@ -5,6 +5,22 @@
   <fieldset>
     <legend>Join today</legend>
     <div class="form-fields">
+
+      <div class="form-field">
+        {{ form.name.label(class='label') }}
+        {% if form.name.errors %}
+          {{ form.name(class="input-field") }}
+
+          <div class="invalid-feedback">
+          {% for error in form.name.errors %}
+            <span>{{ error }}</span>
+          {% endfor %}
+          </div>
+        {% else %}
+          {{ form.name(class="input-field") }}
+        {% endif %}
+      </div>
+
       <div class="form-field">
         {{ form.username.label(class='label') }}
         {% if form.username.errors %}

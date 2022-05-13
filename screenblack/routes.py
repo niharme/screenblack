@@ -28,7 +28,7 @@ def register():
   form = RegistrationForm()
   if form.validate_on_submit():
     hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
-    user = User(username = form.username.data, email = form.email.data, password = hashed_password)
+    user = User(name = form.name.data, username = form.username.data, email = form.email.data, password = hashed_password)
     db.session.add(user)
     db.session.commit()
     flash(f"Account created, you can now login", "success")
@@ -107,13 +107,15 @@ def account():
           os.remove(os.path.join(app.root_path, 'static/profilepics', old_pic))
         except:
           pass
-
+    
+    current_user.name = form.name.data
     current_user.username = form.username.data
     current_user.email = form.email.data
     db.session.commit()
     flash("Your details have been Updated!", "success")
     return redirect(url_for("account"))
   elif request.method =="GET":
+    form.name.data = current_user.name
     form.username.data = current_user.username
     form.email.data = current_user.email
 

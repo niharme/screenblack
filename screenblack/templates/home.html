@@ -5,10 +5,10 @@
     <article class="article-body">
       <div class="home-article">
         <div class="article-author-picture">
-          <a href="{{ url_for('user_about', username=post.author.username) }}"><img class="profilepic-mini" src="{{ url_for('static', filename='profilepics/'+post.author.picture) }}" alt="profile picture for {{ post.author.username }}"></a>
+          <a href="{{ url_for('user_about', username=post.author.username) }}"><img class="profilepic-mini" src="{{ url_for('static', filename='profilepics/'+post.author.picture) }}" alt="profile picture for {{ post.author.name }}"></a>
         </div>
         <div class="article-author-details">
-          <a class="article-author" href="{{ url_for('user_about', username=post.author.username) }}">{{ post.author.username }}</a>
+          <a class="article-author" href="{{ url_for('user_about', username=post.author.username) }}">{{ post.author.name }}</a>
           <small class="text-muted">on</small>
           <small class="article-date">{{ post.date_posted.strftime("%B %d, %Y") }}</small>
         </div>

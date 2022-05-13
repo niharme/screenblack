@@ -10,6 +10,7 @@ def load_user(user_id):
 
 class User(db.Model, UserMixin):
   id = db.Column(db.Integer, primary_key = True)
+  name = db.Column(db.String(30), nullable = False, unique = True)
   username = db.Column(db.String(20), nullable = False, unique = True)
   email = db.Column(db.String(120), nullable = False, unique = True)
   picture = db.Column(db.String(20), nullable = False, default = "default.jpg")
@@ -18,7 +19,7 @@ class User(db.Model, UserMixin):
   posts = db.relationship("Post", backref = "author", lazy = True)
 
   def __repr__(self):
-    return f"User('{self.username}', '{self.email}', '{self.picture}')"
+    return f"User('{self.name}', '{self.username}', '{self.email}', '{self.picture}')"
 
 
 class Post(db.Model):
