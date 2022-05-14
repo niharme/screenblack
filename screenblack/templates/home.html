@@ -5,15 +5,15 @@
     <article class="article-body">
       <div class="home-article">
         <div class="article-author-picture">
-          <a href="{{ url_for('user_about', username=post.author.username) }}"><img class="profilepic-mini" src="{{ url_for('static', filename='profilepics/'+post.author.picture) }}" alt="profile picture for {{ post.author.name }}"></a>
+          <a href="{{ url_for('users.user_about', username=post.author.username) }}"><img class="profilepic-mini" src="{{ url_for('static', filename='profilepics/'+post.author.picture) }}" alt="profile picture for {{ post.author.name }}"></a>
         </div>
         <div class="article-author-details">
-          <a class="article-author" href="{{ url_for('user_about', username=post.author.username) }}">{{ post.author.name }}</a>
+          <a class="article-author" href="{{ url_for('users.user_about', username=post.author.username) }}">{{ post.author.name }}</a>
           <small class="text-muted">on</small>
           <small class="article-date">{{ post.date_posted.strftime("%B %d, %Y") }}</small>
         </div>
       </div>
-      <h2><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+      <h2><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
       <div class="article-content">
         <p>{{ post.content }}</p>
       </div>
@@ -25,9 +25,9 @@
     {% for page_num in posts.iter_pages(left_edge = 1, right_edge = 1, left_current = 1, right_current = 2) %}
       {% if page_num %}
         {% if page_num == posts.page %}
-          <a class="link-current" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+          <a class="link-current" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
         {% else %}
-          <a href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+          <a href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
         {% endif %}
       {% else %}
         ...

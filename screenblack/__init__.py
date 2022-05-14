@@ -3,12 +3,29 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = '76470fd7b03ec6520cf8f331674ce8b70027e3d630cdddcbdb8393b5c581e81f'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
-login_manager = LoginManager(app)
-login_manager.login_view = "login"
+from screenblack.config import Config
 
-from screenblack import routes
+
+db = SQLAlchemy()
+bcrypt = Bcrypt()
+login_manager = LoginManager()
+login_manager.login_view = "users.login"
+
+
+def create_app(config_class = Config):
+  app = Flask(__name__)
+  app.config .from_object(Config)
+
+  db.init_app(app)
+  bcrypt.init_app(app)
+  login_manager.init_app(app)
+  
+  from screenblack.users.routes import users
+  from screenblack.posts.routes import posts
+  from screenblack.main.routes import main
+
+  app. register_blueprint(users)
+  app. register_blueprint(posts)
+  app. register_blueprint(main)
+
+  return app

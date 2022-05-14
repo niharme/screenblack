@@ -1,6 +1,5 @@
 from datetime import datetime
-from screenblack import db
-from screenblack import login_manager
+from screenblack import db, login_manager
 from flask_login import UserMixin
 
 @login_manager.user_loader

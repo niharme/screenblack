@@ -24,7 +24,7 @@
         <div class="form-field">
           {{ form.content.label(class='label') }}
           {% if form.content.errors %}
-            {{ form.content(class="input-field") }}
+            {{ form.content(class="content-input-field") }}
 
             <div class="invalid-feedback">
               {% for error in form.content.errors %}
@@ -32,7 +32,7 @@
               {% endfor %}
             </div>
           {% else %}
-            {{ form.content(class="input-field") }}
+            {{ form.content(class="content-input-field") }}
           {% endif %}
         </div>
 

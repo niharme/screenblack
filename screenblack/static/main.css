@@ -220,6 +220,17 @@ input[type="file" i]::-webkit-file-upload-button {
   outline: none;
   font-size: 1.4rem;
 }
+.content-input-field {
+  min-height: 240px;
+  background-color: inherit;
+  font-family: inherit;
+  color: var(--gray0);
+  border: none;
+  border-bottom: 1px solid var(--rajah);
+  outline: none;
+  font-size: 1.2rem;
+}
+
 
 .btn {
   font-family: inherit;

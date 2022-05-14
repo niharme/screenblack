@@ -1,9 +1,10 @@
 from flask_wtf import FlaskForm
-from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from flask_wtf.file import FileField, FileAllowed
+from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from flask_login import current_user
 from screenblack.models import User
+
 
 class RegistrationForm(FlaskForm):
   name = StringField("Name", validators=[DataRequired(), Length(min=1, max=30)])
@@ -51,8 +52,3 @@ class UpdateAccountForm(FlaskForm):
       if user:
         raise ValidationError("Email already in use!")
 
-
-class PostForm(FlaskForm):
-  title = StringField("Title", validators=[DataRequired()])
-  content = TextAreaField("Content", validators=[DataRequired()])
-  submit = SubmitField("Post")

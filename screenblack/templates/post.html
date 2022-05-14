@@ -5,18 +5,18 @@
     <div class="article-metadata">
       <div class="article-header">
         <div class="article-author-picture">
-          <a href="{{ url_for('user_about', username=post.author.username) }}"><img class="profilepic-mini" src="{{ url_for('static', filename='profilepics/'+post.author.picture) }}" alt="profile picture for {{ post.author.name }}"></a>
+          <a href="{{ url_for('users.user_about', username=post.author.username) }}"><img class="profilepic-mini" src="{{ url_for('static', filename='profilepics/'+post.author.picture) }}" alt="profile picture for {{ post.author.name }}"></a>
         </div>
         <div class="article-author-details">
-          <a class="article-author" href="{{ url_for('user_about', username=post.author.username) }}">{{ post.author.name }}</a>
+          <a class="article-author" href="{{ url_for('users.user_about', username=post.author.username) }}">{{ post.author.name }}</a>
           <small class="text-muted">on</small>
           <small class="article-date">{{ post.date_posted.strftime("%B %d, %Y") }}</small>
         </div>
       </div>
       {% if post.author == current_user %}
       <div class="article-modify">
-        <a href="{{ url_for('update_post', post_id = post.id) }}">Update</a>
-        <a href="{{ url_for('delete_post', post_id = post.id) }}">Delete</a>
+        <a href="{{ url_for('posts.update_post', post_id = post.id) }}">Update</a>
+        <a href="{{ url_for('posts.delete_post', post_id = post.id) }}">Delete</a>
       </div>
       {% endif %}
       
