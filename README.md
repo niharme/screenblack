@@ -1,11 +1,25 @@
-activate virtual environment
+Activate the virtual environment
 
-for downloading requierd packages
+```
+ve
+va
+```
+
+Install the required packages
 ```
 pip install -r requirements.txt
 ```
 
-running the app in localhost
+Run the app
 ```
 python run.py
 ```
+
+If you want to test it with friends and colleagues use tunnel like ngrok and cloudflared
+To serve using ngrok
+```
+ngrok http 127.0.0.1:5000
+```
+
+Deployment link
+(https://screenblack.herokuapp.com/)
